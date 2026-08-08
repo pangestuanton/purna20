@@ -76,10 +76,14 @@ ${settlementsSummary}
 Jelaskan secara langsung total tagihan dan siapa saja yang perlu menyelesaikan pembayaran agar semuanya lunas. Tulis dengan gaya to-the-point, bebas dari emoji, dan hindari format tabel.`;
     }
 
-    const aiResponse = await callOpenRouter([
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: userPrompt },
-    ], 0.3);
+    const aiResponse = await callOpenRouter(
+      [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userPrompt },
+      ],
+      0.3,
+      300,
+    );
 
     return NextResponse.json({ result: aiResponse.trim(), isFallback: false });
   } catch (error: unknown) {

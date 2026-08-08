@@ -9,7 +9,7 @@ export interface ChatMessage {
       >;
 }
 
-export async function callOpenRouter(messages: ChatMessage[], temperature = 0.3, maxTokens = 2000) {
+export async function callOpenRouter(messages: ChatMessage[], temperature = 0.3, maxTokens = 700) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   const model = process.env.OPENROUTER_MODEL || 'amazon/nova-2-lite-v1';
 
@@ -35,6 +35,13 @@ export async function callOpenRouter(messages: ChatMessage[], temperature = 0.3,
 
   if (!response.ok) {
     const errorText = await response.text();
+
+    if (response.status === 402) {
+      throw new Error(
+        'Saldo OpenRouter tidak cukup untuk memproses permintaan ini. Tambahkan credits atau coba lagi dengan struk yang lebih sederhana.',
+      );
+    }
+
     throw new Error(`OpenRouter API error (${response.status}): ${errorText}`);
   }
 

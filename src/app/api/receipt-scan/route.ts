@@ -86,7 +86,7 @@ Perhatikan:
       },
     ];
 
-    const responseContent = await callOpenRouter(messages, 0.2);
+    const responseContent = await callOpenRouter(messages, 0.2, 700);
 
     // Parse AI content, cleaning any markdown wrappers
     let jsonText = responseContent.trim();
