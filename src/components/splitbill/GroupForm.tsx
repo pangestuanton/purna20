@@ -68,21 +68,21 @@ export function GroupForm({ initialData, onSubmit, submitLabel = 'Simpan Grup' }
 
       <Card className="space-y-5 p-5 sm:p-6">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-green-700">Detail sesi</p>
-          <h2 className="mt-1 text-lg font-black text-stone-950">Informasi dasar</h2>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-green-700">Wajib diisi</p>
+          <h2 className="mt-1 text-lg font-black text-stone-950">Nama dan cerita singkat</h2>
           <p className="mt-1 text-sm leading-6 text-stone-500">
-            Nama ini akan tampil di detail bill, riwayat, dan halaman share.
+            Biar teman langsung tahu ini patungan untuk apa.
           </p>
         </div>
 
         <div>
           <label className="block text-sm font-bold text-stone-700 mb-1">
-            Nama Kegiatan / Grup *
+            Nama patungan *
           </label>
           <Input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Contoh: Makan Malam Alumni, Patungan Villa"
+            placeholder="Contoh: Makan sore, Villa Bandung"
             required
             disabled={isSubmitting}
           />
@@ -90,24 +90,24 @@ export function GroupForm({ initialData, onSubmit, submitLabel = 'Simpan Grup' }
 
         <div>
           <label className="block text-sm font-bold text-stone-700 mb-1">
-            Deskripsi (Opsional)
+            Catatan kecil <span className="font-medium text-stone-400">(opsional)</span>
           </label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Tambahkan catatan singkat mengenai grup ini..."
+            placeholder="Contoh: Makan bareng setelah kelas"
             className="min-h-24 w-full rounded-2xl border border-stone-200 bg-white p-4 text-sm text-stone-950 shadow-sm outline-none transition placeholder:text-stone-400 focus:border-green-400 focus:ring-4 focus:ring-green-500/15 disabled:cursor-not-allowed disabled:bg-stone-50 disabled:text-stone-400"
             disabled={isSubmitting}
           />
         </div>
       </Card>
 
-      <Card className="space-y-5 p-5 sm:p-6">
+      <Card className="space-y-5 border-stone-200/70 bg-[#fffefa] p-5 sm:p-6">
         <div className="border-b border-stone-100 pb-4">
           <p className="text-xs font-black uppercase tracking-[0.16em] text-green-700">Opsional</p>
-          <h2 className="mt-1 text-lg font-black text-stone-950">Biaya tambahan dan diskon</h2>
+          <h2 className="mt-1 text-lg font-black text-stone-950">Ada pajak, service, atau diskon?</h2>
           <p className="mt-1 text-sm leading-6 text-stone-500">
-            Pajak, service, diskon, dan biaya lain akan masuk ke kalkulasi proporsional.
+            Isi yang ada saja. Semuanya akan dibagi proporsional secara otomatis.
           </p>
         </div>
 
@@ -176,7 +176,7 @@ export function GroupForm({ initialData, onSubmit, submitLabel = 'Simpan Grup' }
 
         <div>
           <label className="block text-xs font-bold text-stone-600 mb-1">
-            Biaya Lainnya / Ongkir (Rp)
+            Ongkir / biaya lain (Rp)
           </label>
           <Input
             type="number"
@@ -189,7 +189,7 @@ export function GroupForm({ initialData, onSubmit, submitLabel = 'Simpan Grup' }
         </div>
       </Card>
 
-      <Button type="submit" className="w-full" disabled={isSubmitting || !name.trim()}>
+      <Button type="submit" className="min-h-14 w-full text-base" disabled={isSubmitting || !name.trim()}>
         {isSubmitting ? 'Memproses...' : submitLabel}
       </Button>
     </form>

@@ -140,15 +140,15 @@ export function ReceiptScanner({ onScanCompleted, disabled = false }: ReceiptSca
   };
 
   return (
-    <Card className="space-y-4 border-dashed border-green-200 bg-white p-5 sm:p-6">
+    <Card className="space-y-4 border-green-200/80 bg-white p-5 shadow-none sm:p-6">
       <div className="flex items-start gap-3">
         <span className="grid size-10 shrink-0 place-items-center rounded-2xl bg-green-50 text-green-700">
           <Sparkles size={18} />
         </span>
         <div className="min-w-0">
-          <h3 className="text-base font-black text-stone-950">Scan Struk Belanja</h3>
+          <h3 className="text-base font-black text-stone-950">Foto struk, beres lebih cepat</h3>
           <p className="mt-1 text-sm leading-6 text-stone-500">
-            Unggah foto struk agar AI membantu membaca merchant, total, dan daftar item.
+            Kami bantu membaca toko, total, dan itemnya. Kamu tinggal cek ulang.
           </p>
         </div>
       </div>
@@ -165,16 +165,16 @@ export function ReceiptScanner({ onScanCompleted, disabled = false }: ReceiptSca
           />
           <button
             type="button"
-            className="flex w-full flex-col items-center justify-center rounded-[24px] border border-dashed border-green-200 bg-green-50/50 px-4 py-8 text-center transition hover:bg-green-50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex w-full flex-col items-center justify-center rounded-[24px] border border-dashed border-green-300 bg-green-50/65 px-4 py-8 text-center transition hover:border-green-400 hover:bg-green-50 disabled:cursor-not-allowed disabled:opacity-60"
             onClick={() => fileInputRef.current?.click()}
             disabled={disabled}
           >
             <div className="mb-3 grid size-14 place-items-center rounded-3xl bg-white text-green-700 shadow-sm">
               <Camera size={24} />
             </div>
-            <p className="text-sm font-black text-stone-800">Pilih atau ambil foto struk</p>
+            <p className="text-sm font-black text-stone-800">Ambil foto atau pilih dari galeri</p>
             <p className="mt-1 text-xs leading-5 text-stone-500">
-              Format gambar umum didukung. Foto akan dikompresi sebelum dianalisis.
+              Pastikan tulisan terlihat jelas supaya hasil bacanya makin mantap.
             </p>
           </button>
           {error && (
@@ -228,7 +228,7 @@ export function ReceiptScanner({ onScanCompleted, disabled = false }: ReceiptSca
             ) : (
               <>
                 <Sparkles size={14} />
-                Scan dan Analisis Struk
+                Baca struk sekarang
               </>
             )}
           </Button>
